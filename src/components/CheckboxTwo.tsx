@@ -41,7 +41,8 @@ const CheckboxTwo = () => {
             </span>
           </div>
         </div>
-        Checkbox Text
+        
+        Is truck insured?
       </label>
     </div>
   );

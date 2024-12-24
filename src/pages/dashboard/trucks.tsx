@@ -1,11 +1,14 @@
 import { FaTimes } from 'react-icons/fa';
 import trucksData from '../../data/truckData';
 import { SetStateAction, useState, useEffect } from 'react';
+import TruckDetails from '../../components/TruckDetails';
 
 import Map from '../../images/maps.png';
 import Truck1 from '../../images/trucks/truck1.jpg';
 import Truck2 from '../../images/trucks/truck2.jpg';
 import Truck3 from '../../images/trucks/truck3.jpg';
+
+import CheckboxTwo from '../../components/CheckboxTwo';
 
 interface Truck {
     id: number;
@@ -88,40 +91,143 @@ const Trucks = () => {
                 <button className='bg-blue-600 hover:bg-blue-700 duration-150 text-white px-4 py-3 rounded-lg font-medium text-sm' onClick={() => setIsModalOpen(true)}>Add Trucks</button>
             </div>
 
+            <div className="grid gap-4 2xl:gap-8 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-4">
+                <TruckDetails primaryColor={'text-green-600'} value={13} title='Active Trucks' />
+                <TruckDetails primaryColor={'text-red-600'} value={5} title='Redundant Trucks' />
+                <TruckDetails primaryColor={'text-gray-800'} value={18} title='Total Trucks' />
+                <TruckDetails primaryColor={'text-green-300'} value={2} title='Currently on Shipment' />
+            </div>
+
             {isModalOpen && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                    <div className="bg-white rounded-lg shadow-lg p-6 w-[400px]">
+                <div className="fixed inset-0 flex pt-8 pb-6 justify-center bg-black bg-opacity-50 z-50">
+                    <div className="bg-white rounded-lg shadow-lg p-6 w-[95%] md:w-[60%] lg:w-[50%] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
                         <h3 className="text-xl font-semibold mb-4">Add New Truck</h3>
                         <form onSubmit={handleAddTruck}>
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium mb-1">Truck Name</label>
-                                <input
-                                    type="text"
-                                    className="w-full px-4 py-2 border rounded-md text-black"
-                                    placeholder="Enter truck name"
-                                    value={truckName}
-                                    onChange={(e) => setTruckName(e.target.value)}
-                                    required
-                                />
+                            <div className="grid grid-cols-2 gap-4">
+                                {/* Truck Name */}
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium mb-1">Truck Name</label>
+                                    <input
+                                        type="text"
+                                        className="w-full px-4 py-2 border rounded-md text-black"
+                                        placeholder="Enter truck name"
+                                        value={truckName}
+                                        onChange={(e) => setTruckName(e.target.value)}
+                                        required
+                                    />
+                                </div>
+
+                                {/* Select Truck Model */}
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium mb-1">Truck Model</label>
+                                    <select
+                                        className="w-full px-4 py-2 border rounded-md text-black"
+                                        value={selectedModel}
+                                        onChange={handleModelChange}
+                                        required
+                                    >
+                                        <option value="" disabled>Select a model</option>
+                                        {trucksData.map((truck) => (
+                                            <option key={truck.id} value={truck.model}>
+                                                {truck.type}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+
+                                {/* Truck Dimensions */}
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium mb-1">Chases Number</label>
+                                    <input
+                                        type="number"
+                                        className="w-full px-4 py-2 border rounded-md text-black"
+                                        placeholder="Enter chases"
+                                        // value={length}
+                                        // onChange={(e) => setLength(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium mb-1">VIM Number</label>
+                                    <input
+                                        type="number"
+                                        className="w-full px-4 py-2 border rounded-md text-black"
+                                        placeholder="Enter VIM"
+                                        // value={breadth}
+                                        // onChange={(e) => setBreadth(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium mb-1">Height (m)</label>
+                                    <input
+                                        type="number"
+                                        className="w-full px-4 py-2 border rounded-md text-black"
+                                        placeholder="Enter height"
+                                        // value={height}
+                                        // onChange={(e) => setHeight(e.target.value)}
+                                        required
+                                    />
+                                </div>
+
+                                {/* Weight Capacity */}
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium mb-1">Weight Capacity (tonnes)</label>
+                                    <input
+                                        type="text"
+                                        className="w-full px-4 py-2 border rounded-md text-black"
+                                        placeholder="Enter weight capacity"
+                                        // value={weightCapacity}
+                                        // onChange={(e) => setWeightCapacity(e.target.value)}
+                                        required
+                                    />
+                                </div>
+
+                                {/* Plate Number */}
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium mb-1">Plate Number</label>
+                                    <input
+                                        type="text"
+                                        className="w-full px-4 py-2 border rounded-md text-black"
+                                        placeholder="Enter plate number"
+                                        // value={plateNumber}
+                                        // onChange={(e) => setPlateNumber(e.target.value)}
+                                        required
+                                    />
+                                </div>
+
+                                {/* Driver License */}
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium mb-1">Driver's License</label>
+                                    <input
+                                        type="text"
+                                        className="w-full px-4 py-2 border rounded-md text-black"
+                                        placeholder="Enter driver's license number"
+                                        // value={driverLicense}
+                                        // onChange={(e) => setDriverLicense(e.target.value)}
+                                        required
+                                    />
+                                </div>
+
+                                {/* Assigned Driver */}
+                                <div className="mb-4">
+                                    <label className="block text-sm font-medium mb-1">Assigned Driver</label>
+                                    <input
+                                        type="text"
+                                        className="w-full px-4 py-2 border rounded-md text-black"
+                                        placeholder="Enter driver name"
+                                        // value={assignedDriver}
+                                        // onChange={(e) => setAssignedDriver(e.target.value)}
+                                        required
+                                    />
+                                </div>
+
+                                <div className="mb-4 flex items-end">
+                                    <CheckboxTwo />
+                                </div>
                             </div>
 
-                            <div className="mb-4">
-                                <label className="block text-sm font-medium mb-1">Select Truck Model</label>
-                                <select
-                                    className="w-full px-4 py-2 border rounded-md text-black"
-                                    value={selectedModel}
-                                    onChange={handleModelChange}
-                                    required
-                                >
-                                    <option value="" disabled>Select a model</option>
-                                    {trucksData.map((truck) => (
-                                        <option key={truck.id} value={truck.model}>
-                                            {truck.type}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-
+                            {/* Truck Preview */}
                             {selectedTruck && (
                                 <div className="mb-4 flex flex-col items-center">
                                     <img
@@ -129,10 +235,13 @@ const Trucks = () => {
                                         alt={selectedTruck.model}
                                         className="w-24 h-24 mb-2"
                                     />
-                                    <p className="text-sm text-gray-500">{selectedTruck.type} • {selectedTruck.capacity}</p>
+                                    <p className="text-sm text-gray-500">
+                                        {selectedTruck.type} • {selectedTruck.capacity}
+                                    </p>
                                 </div>
                             )}
 
+                            {/* Form Actions */}
                             <div className="flex justify-end space-x-2">
                                 <button
                                     type="button"
@@ -151,44 +260,49 @@ const Trucks = () => {
                         </form>
                     </div>
                 </div>
+
             )}
 
-            <div className="grid gap-5 2xl:gap-8 grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 mt-4">
-                {trucksData.map((truck) => (
-                    <div
-                        key={truck.id}
-                        className="bg-white hover:bg-gray-50 px-3 py-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 relative cursor-pointer"
-                        onClick={() => handleTruckClick(truck)}
-                    >
-                        {/* Status Tag */}
-                        {truck.status === "active" && (
-                            <span className="absolute top-2 right-2 bg-green-100 text-green-500 text-xs font-semibold px-2 py-1 rounded-md">
-                                Active
-                            </span>
-                        )}
+            <div className='my-4'>
+                <h3 className="text-base lg:text-xl font-medium text-black">All Trucks</h3>
 
-                        {/* Truck Image */}
-                        <img
-                            src={truck.image}
-                            alt={`${truck.type} image`}
-                            className="w-full h-40 object-cover rounded-lg mb-4 mt-4"
-                        />
+                <div className="grid gap-5 2xl:gap-8 grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 mt-4">
+                    {trucksData.map((truck) => (
+                        <div
+                            key={truck.id}
+                            className="bg-white hover:bg-gray-50 px-3 py-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200 relative cursor-pointer"
+                            onClick={() => handleTruckClick(truck)}
+                        >
+                            {/* Status Tag */}
+                            {truck.status === "active" && (
+                                <span className="absolute top-2 right-2 bg-green-100 text-green-500 text-xs font-semibold px-2 py-1 rounded-md">
+                                    Active
+                                </span>
+                            )}
 
-                        {/* Truck Details */}
-                        <h3 className="text-2xl font-semibold text-black">{truck.model}</h3>
-                        <p className="text-gray-500 font-medium text-md">
-                            {truck.type} • {truck.capacity}
-                        </p>
+                            {/* Truck Image */}
+                            <img
+                                src={truck.image}
+                                alt={`${truck.type} image`}
+                                className="w-full h-40 object-cover rounded-lg mb-4 mt-4"
+                            />
 
-                        {/* Location for Active Trucks */}
-                        {truck.status === "active" && (
-                            <p className="mt-2 text-sm font-medium text-gray-600">
-                                Current Location:{" "}
-                                <span className="text-black">{truck.location}</span>
+                            {/* Truck Details */}
+                            <h3 className="text-2xl font-semibold text-black">{truck.model}</h3>
+                            <p className="text-gray-500 font-medium text-md">
+                                {truck.type} • {truck.capacity}
                             </p>
-                        )}
-                    </div>
-                ))}
+
+                            {/* Location for Active Trucks */}
+                            {truck.status === "active" && (
+                                <p className="mt-2 text-sm font-medium text-gray-600">
+                                    Current Location:{" "}
+                                    <span className="text-black">{truck.location}</span>
+                                </p>
+                            )}
+                        </div>
+                    ))}
+                </div>
             </div>
 
             {/* Modal for Truck Details */}
