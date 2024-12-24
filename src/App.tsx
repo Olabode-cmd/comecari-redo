@@ -2,9 +2,9 @@ import { Suspense, lazy, useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
-import ECommerce from './pages/dashboard/ECommerce';
-import SignIn from './pages/auth/SignIn';
-import SignUp from './pages/auth/SignUp';
+import Dashboard from './pages/dashboard';
+import SignIn from './pages/auth/signin';
+import SignUp from './pages/auth/signup';
 import Loader from './common/Loader';
 import routes from './routes';
 
@@ -33,7 +33,7 @@ function App() {
         <Route path="/auth/signup" element={<SignUp />} />
         <Route path="/" element={<Default />} />
         <Route element={<DefaultLayout />}>
-          <Route path="/dashboard" element={<ECommerce />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           {routes.map((routes, index) => {
             const { path, component: Component } = routes;
             return (
