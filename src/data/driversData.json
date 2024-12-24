@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "John Doe",
+    "photo": "https://randomuser.me/api/portraits/men/1.jpg",
+    "rating": 4.8,
+    "totalDrivingHours": 1200,
+    "lastActive": "2024-12-20",
+    "email": "john.doe@example.com",
+    "mobile": "+1234567890"
+  },
+  {
+    "id": 2,
+    "name": "Jane Smith",
+    "photo": "https://randomuser.me/api/portraits/women/2.jpg",
+    "rating": 4.7,
+    "totalDrivingHours": 1100,
+    "lastActive": "2024-12-22",
+    "email": "jane.smith@example.com",
+    "mobile": "+1987654321"
+  },
+  {
+    "id": 3,
+    "name": "Samuel Brown",
+    "photo": "https://randomuser.me/api/portraits/men/3.jpg",
+    "rating": 4.6,
+    "totalDrivingHours": 1050,
+    "lastActive": "2024-12-18",
+    "email": "samuel.brown@example.com",
+    "mobile": "+1122334455"
+  },
+  {
+    "id": 4,
+    "name": "Emily Davis",
+    "photo": "https://randomuser.me/api/portraits/women/4.jpg",
+    "rating": 4.9,
+    "totalDrivingHours": 1500,
+    "lastActive": "2024-12-24",
+    "email": "emily.davis@example.com",
+    "mobile": "+1223344556"
+  },
+  {
+    "id": 5,
+    "name": "Michael Johnson",
+    "photo": "https://randomuser.me/api/portraits/men/5.jpg",
+    "rating": 4.5,
+    "totalDrivingHours": 980,
+    "lastActive": "2024-12-15",
+    "email": "michael.johnson@example.com",
+    "mobile": "+1234561234"
+  }
+]

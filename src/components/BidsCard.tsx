@@ -25,11 +25,11 @@ const BidsCard = ()=> {
                             className="flex items-end justify-between border-b pb-4 last:border-b-0"
                         >
                             <div>
-                                <h4 className="text-md text-black font-medium">{bid.route}</h4>
+                                <h4 className="text-md text-black dark:text-white font-medium">{bid.route}</h4>
 
                                 <h4 className="text-gray-4">
                                     You bid:{" "}
-                                    <span className="text-black font-semibold">
+                                    <span className="text-black dark:text-white font-semibold">
                                         {bid.bidAmount}
                                     </span>
                                 </h4>
@@ -37,10 +37,10 @@ const BidsCard = ()=> {
                                     <p className="text-md font-medium text-gray-4">Status:</p>
                                     <span
                                         className={`px-2 py-1 rounded-md text-sm ${bid.status === "Pending"
-                                                ? "text-orange-500 bg-orange-50"
+                                            ? "text-orange-600 bg-orange-50 dark:bg-orange-100"
                                                 : bid.status === "Accepted"
-                                                    ? "text-green-500 bg-green-50"
-                                                    : "text-red-500 bg-red-50"
+                                                ? "text-green-600 bg-green-50 dark:bg-green-100"
+                                                    : "text-red-600 bg-red-50 dark:bg-red-100"
                                             }`}
                                     >
                                         {bid.status}

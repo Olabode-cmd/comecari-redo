@@ -57,7 +57,7 @@ const TableOne = () => {
           {limitedData.map((entry, index) => (
             <tr
               key={entry.id}
-              className={`border-stroke text-sm font-medium dark:border-strokedark ${index % 2 === 0 ? 'bg-gray-50' : 'bg-blue-50'}`}
+              className={`border-stroke text-sm font-medium dark:border-strokedark ${index % 2 === 0 ? 'bg-gray-50' : 'bg-blue-50 dark:bg-slate-600'}`}
             >
               <td className="p-2.5 text-black dark:text-white">
                 {entry.name}
