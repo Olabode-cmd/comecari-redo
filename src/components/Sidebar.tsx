@@ -3,8 +3,9 @@ import { NavLink, useLocation } from 'react-router-dom';
 // import Logo from '../images/logo/logo.svg';
 import Comecari from '../images/comecari-logo.png'
 import SidebarLinkGroup from './SidebarLinkGroup';
-import { TbCash, TbTruckDelivery } from "react-icons/tb";
+import { TbBuilding, TbCash, TbTruckDelivery } from "react-icons/tb";
 import { TbBriefcase2  } from "react-icons/tb";
+import { FaBuilding } from 'react-icons/fa6';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -266,8 +267,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                     <React.Fragment>
                       <NavLink
                         to="#"
-                        className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${(pathname === '/forms' ||
-                            pathname.includes('forms')) &&
+                        className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${(pathname === '/fleets' ||
+                            pathname.includes('fleets')) &&
                           'bg-graydark dark:bg-meta-4'
                           }`}
                         onClick={(e) => {
@@ -352,6 +353,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 >
                   <TbCash className='w-5 h-5' />
                   Bids
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="/marketplace"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname.includes('marketplace') && 'bg-graydark dark:bg-meta-4'
+                    }`}
+                >
+                  <TbBuilding className='w-5 h-5' />
+                  Marketplace
                 </NavLink>
               </li>
 

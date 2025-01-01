@@ -13,7 +13,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, size = 'md', chil
 
     // Determine width based on size prop
     const sizeClasses = {
-        sm: 'w-[90%] md:w-[65%] lg:w-[45%]', 
+        sm: 'w-[90%] md:w-[55%] lg:w-[35%]', 
         md: 'w-[95%] md:w-[75%] lg:w-[55%]',
         lg: 'w-[95%] md:w-[80%]',
     };

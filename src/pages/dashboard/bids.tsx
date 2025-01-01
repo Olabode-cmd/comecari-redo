@@ -225,7 +225,6 @@ const Bids = () => {
                                         <img key={index} src={photo} alt={`Cargo photo ${index + 1}`} className="w-full rounded-lg" />
                                     ))}
                                 </div>
-                                {/* <img src={Map} alt="map src" className="rounded-lg mt-3" /> */}
                             </div>
                         </div>
                     </div>

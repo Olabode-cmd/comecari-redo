@@ -5,6 +5,7 @@ const Trucks = lazy(() => import('../pages/dashboard/trucks'));
 const Drivers = lazy(() => import('../pages/dashboard/drivers'));
 const Jobs = lazy(() => import('../pages/dashboard/jobs'));
 const Bids = lazy(() => import('../pages/dashboard/bids'));
+const Marketplace = lazy(() => import('../pages/dashboard/marketplace'));
 const Chart = lazy(() => import('../pages/Chart'));
 const FormElements = lazy(() => import('../pages/Form/FormElements'));
 const FormLayout = lazy(() => import('../pages/Form/FormLayout'));
@@ -34,6 +35,11 @@ const coreRoutes = [
     path: '/bids',
     title: 'Bids',
     component: Bids,
+  },
+  {
+    path: '/marketplace',
+    title: 'Marketplace',
+    component: Marketplace,
   },
   {
     path: '/profile',
