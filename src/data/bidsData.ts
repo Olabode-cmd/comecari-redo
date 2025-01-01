@@ -9,13 +9,13 @@ import Van7 from "../images/trucks/van07.png";
 import Van8 from "../images/trucks/van08.png";
 import Van9 from "../images/trucks/van09.png";
 
-interface Bid {
-  id: number;
-  route: string;
-  bidAmount: string;
-  status: 'Pending' | 'Accepted' | 'Closed';
-  vanImage: string;
-}
+// interface Bid {
+//   id: number;
+//   route: string;
+//   bidAmount: string;
+//   status: 'Pending' | 'Accepted' | 'Closed';
+//   vanImage: string;
+// }
 
 
 const bidsData = [

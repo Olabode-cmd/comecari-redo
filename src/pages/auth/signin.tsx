@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
-import LogoDark from '../../images/logo/logo-dark.svg';
-import Logo from '../../images/logo/logo.svg';
+// import LogoDark from '../../images/logo/logo-dark.svg';
+import Logo from '../../images/comecari-logo.png';
 
 const SignIn = () => {
   return (
     <>
       <div className="flex h-screen w-full items-center justify-center bg-primary">
         <div className='w-[95%] md:w-[40%] lg:w-[35%] mx-auto'>
-          <img src={Logo} alt="logo"className='w-[125px] mx-auto mb-16' />
+          <img src={Logo} alt="logo"className='w-[95px] mx-auto mb-16' />
 
           {/* <!-- Sign In Form --> */}
           <div className="rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">

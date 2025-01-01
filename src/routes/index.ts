@@ -3,6 +3,8 @@ import { lazy } from 'react';
 // const Calendar = lazy(() => import('../pages/Calendar'));
 const Trucks = lazy(() => import('../pages/dashboard/trucks'));
 const Drivers = lazy(() => import('../pages/dashboard/drivers'));
+const Jobs = lazy(() => import('../pages/dashboard/jobs'));
+const Bids = lazy(() => import('../pages/dashboard/bids'));
 const Chart = lazy(() => import('../pages/Chart'));
 const FormElements = lazy(() => import('../pages/Form/FormElements'));
 const FormLayout = lazy(() => import('../pages/Form/FormLayout'));
@@ -22,6 +24,16 @@ const coreRoutes = [
     path: '/fleets/drivers',
     title: 'Drivers',
     component: Drivers,
+  },
+  {
+    path: '/jobs',
+    title: 'Jobs',
+    component: Jobs,
+  },
+  {
+    path: '/bids',
+    title: 'Bids',
+    component: Bids,
   },
   {
     path: '/profile',

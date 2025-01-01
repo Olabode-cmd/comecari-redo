@@ -1,0 +1,167 @@
+[
+  {
+    "id": "job001",
+    "datePosted": "18 Apr 2022",
+    "status": "pending",
+    "pickupLocation": "Ikeja, Lagos",
+    "deliveryLocation": "Abuja",
+    "driver": {
+      "name": "Mr Lekan",
+      "photo": "https://randomuser.me/api/portraits/women/2.jpg"
+    },
+    "details": {
+      "jobDescription": "Deliver office supplies to the Abuja branch.",
+      "additionalComments": "Handle with care. Delivery must be made before 5 PM.",
+      "price": 25000,
+      "cargoPhotos": [
+        "https://via.placeholder.com/150?text=Parcel+1",
+        "https://via.placeholder.com/150?text=Parcel+2"
+      ],
+      "dimensions": {
+        "length": "50cm",
+        "width": "30cm",
+        "height": "40cm",
+        "weight": "20kg"
+      },
+      "jobPoster": {
+        "name": "John Smith",
+        "profilePhoto": "https://randomuser.me/api/portraits/men/2.jpg"
+      },
+      "truckRequirement": {
+        "type": "Medium Van"
+      }
+    }
+  },
+  {
+    "id": "job002",
+    "datePosted": "18 Apr 2022",
+    "status": "in transit",
+    "pickupLocation": "Ikeja, Lagos",
+    "deliveryLocation": "Abuja",
+    "driver": {
+      "name": "John Doe",
+      "photo": "https://randomuser.me/api/portraits/men/2.jpg"
+    },
+    "details": {
+      "jobDescription": "Transport medical equipment to Abuja hospital.",
+      "additionalComments": "Ensure the items are not exposed to moisture.",
+      "price": 40000,
+      "cargoPhotos": [
+        "https://via.placeholder.com/150?text=Parcel+1",
+        "https://via.placeholder.com/150?text=Parcel+2"
+      ],
+      "dimensions": {
+        "length": "120cm",
+        "width": "80cm",
+        "height": "100cm",
+        "weight": "75kg"
+      },
+      "jobPoster": {
+        "name": "Jane Doe",
+        "profilePhoto": "https://via.placeholder.com/100?text=Profile"
+      },
+      "truckRequirement": {
+        "type": "Heavy Truck"
+      }
+    }
+  },
+  {
+    "id": "job003",
+    "datePosted": "20 May 2021",
+    "status": "pending",
+    "pickupLocation": "Ikeja, Lagos",
+    "deliveryLocation": "Abuja",
+    "driver": {
+      "name": "JD",
+      "photo": "https://randomuser.me/api/portraits/men/4.jpg"
+    },
+    "details": {
+      "jobDescription": "Deliver construction materials to a project site.",
+      "additionalComments": "Load should be evenly distributed to avoid tipping.",
+      "price": 50000,
+      "cargoPhotos": [
+        "https://via.placeholder.com/150?text=Parcel+1",
+        "https://via.placeholder.com/150?text=Parcel+2"
+      ],
+      "dimensions": {
+        "length": "200cm",
+        "width": "100cm",
+        "height": "150cm",
+        "weight": "150kg"
+      },
+      "jobPoster": {
+        "name": "Michael Scott",
+        "profilePhoto": "https://via.placeholder.com/100?text=Profile"
+      },
+      "truckRequirement": {
+        "type": "Flatbed Truck"
+      }
+    }
+  },
+  {
+    "id": "job004",
+    "datePosted": "12 Jul 2021",
+    "status": "pending",
+    "pickupLocation": "Ikeja, Lagos",
+    "deliveryLocation": "Abuja",
+    "driver": {
+      "name": "Mr Lekan",
+      "photo": "https://randomuser.me/api/portraits/men/5.jpg"
+    },
+    "details": {
+      "jobDescription": "Transport electronic appliances for a retail store.",
+      "additionalComments": "Fragile items, avoid stacking other items on top.",
+      "price": 30000,
+      "cargoPhotos": [
+        "https://via.placeholder.com/150?text=Parcel+1",
+        "https://via.placeholder.com/150?text=Parcel+2"
+      ],
+      "dimensions": {
+        "length": "100cm",
+        "width": "50cm",
+        "height": "60cm",
+        "weight": "40kg"
+      },
+      "jobPoster": {
+        "name": "Pam Beesly",
+        "profilePhoto": "https://via.placeholder.com/100?text=Profile"
+      },
+      "truckRequirement": {
+        "type": "Box Truck"
+      }
+    }
+  },
+  {
+    "id": "job005",
+    "datePosted": "15 Aug 2022",
+    "status": "sos",
+    "pickupLocation": "Ikeja, Lagos",
+    "deliveryLocation": "Abuja",
+    "driver": {
+      "name": "James Bond",
+      "photo": "https://randomuser.me/api/portraits/men/1.jpg"
+    },
+    "details": {
+      "jobDescription": "Transport event materials for a conference.",
+      "additionalComments": "Delivery should be made early in the morning.",
+      "price": 35000,
+      "cargoPhotos": [
+        "https://via.placeholder.com/150?text=Parcel+1",
+        "https://via.placeholder.com/150?text=Parcel+2"
+      ],
+      "dimensions": {
+        "length": "70cm",
+        "width": "50cm",
+        "height": "40cm",
+        "weight": "25kg"
+      },
+      "jobPoster": {
+        "name": "Angela Martin",
+        "profilePhoto": "https://via.placeholder.com/100?text=Profile"
+      },
+      "truckRequirement": {
+        "type": "Pickup Truck"
+      }
+    }
+  }
+]

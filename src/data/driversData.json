@@ -4,49 +4,139 @@
     "name": "John Doe",
     "photo": "https://randomuser.me/api/portraits/men/1.jpg",
     "rating": 4.8,
+    "deliveries": 8,
     "totalDrivingHours": 1200,
     "lastActive": "2024-12-20",
     "email": "john.doe@example.com",
-    "mobile": "+1234567890"
+    "mobile": "+1234567890",
+    "recentTrips": [
+      {
+        "route": "Lagos to Port Harcourt",
+        "collectionDate": "2023-01-15",
+        "deliveryDate": "2023-01-17"
+      },
+      {
+        "route": "Sokoto to Lagos",
+        "collectionDate": "2023-01-13",
+        "deliveryDate": "2023-01-15"
+      },
+      {
+        "route": "Abuja to Sokoto",
+        "collectionDate": "2023-01-11",
+        "deliveryDate": "2023-01-13"
+      }
+    ]
   },
   {
     "id": 2,
     "name": "Jane Smith",
     "photo": "https://randomuser.me/api/portraits/women/2.jpg",
     "rating": 4.7,
+    "deliveries": 9,
     "totalDrivingHours": 1100,
     "lastActive": "2024-12-22",
     "email": "jane.smith@example.com",
-    "mobile": "+1987654321"
+    "mobile": "+1987654321",
+    "recentTrips": [
+      {
+        "route": "Abuja to Lagos",
+        "collectionDate": "2023-01-10",
+        "deliveryDate": "2023-01-12"
+      },
+      {
+        "route": "Kaduna to Abuja",
+        "collectionDate": "2023-01-08",
+        "deliveryDate": "2023-01-10"
+      },
+      {
+        "route": "Enugu to Kaduna",
+        "collectionDate": "2023-01-06",
+        "deliveryDate": "2023-01-08"
+      }
+    ]
   },
   {
     "id": 3,
     "name": "Samuel Brown",
     "photo": "https://randomuser.me/api/portraits/men/3.jpg",
     "rating": 4.6,
+    "deliveries": 13,
     "totalDrivingHours": 1050,
     "lastActive": "2024-12-18",
     "email": "samuel.brown@example.com",
-    "mobile": "+1122334455"
+    "mobile": "+1122334455",
+    "recentTrips": [
+      {
+        "route": "Lagos to Ibadan",
+        "collectionDate": "2023-01-09",
+        "deliveryDate": "2023-01-11"
+      },
+      {
+        "route": "Ibadan to Abeokuta",
+        "collectionDate": "2023-01-07",
+        "deliveryDate": "2023-01-09"
+      },
+      {
+        "route": "Abeokuta to Lagos",
+        "collectionDate": "2023-01-05",
+        "deliveryDate": "2023-01-07"
+      }
+    ]
   },
   {
     "id": 4,
     "name": "Emily Davis",
     "photo": "https://randomuser.me/api/portraits/women/4.jpg",
     "rating": 4.9,
+    "deliveries": 8,
     "totalDrivingHours": 1500,
     "lastActive": "2024-12-24",
     "email": "emily.davis@example.com",
-    "mobile": "+1223344556"
+    "mobile": "+1223344556",
+    "recentTrips": [
+      {
+        "route": "Port Harcourt to Lagos",
+        "collectionDate": "2023-01-14",
+        "deliveryDate": "2023-01-16"
+      },
+      {
+        "route": "Lagos to Abuja",
+        "collectionDate": "2023-01-11",
+        "deliveryDate": "2023-01-13"
+      },
+      {
+        "route": "Abuja to Jos",
+        "collectionDate": "2023-01-09",
+        "deliveryDate": "2023-01-11"
+      }
+    ]
   },
   {
     "id": 5,
     "name": "Michael Johnson",
     "photo": "https://randomuser.me/api/portraits/men/5.jpg",
     "rating": 4.5,
+    "deliveries": 18,
     "totalDrivingHours": 980,
     "lastActive": "2024-12-15",
     "email": "michael.johnson@example.com",
-    "mobile": "+1234561234"
+    "mobile": "+1234561234",
+    "recentTrips": [
+      {
+        "route": "Lagos to Benin",
+        "collectionDate": "2023-01-13",
+        "deliveryDate": "2023-01-15"
+      },
+      {
+        "route": "Benin to Warri",
+        "collectionDate": "2023-01-10",
+        "deliveryDate": "2023-01-12"
+      },
+      {
+        "route": "Warri to Lagos",
+        "collectionDate": "2023-01-07",
+        "deliveryDate": "2023-01-09"
+      }
+    ]
   }
 ]

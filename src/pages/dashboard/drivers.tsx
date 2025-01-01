@@ -2,23 +2,33 @@ import driversData from '../../data/driversData.json';
 import { FaChevronRight } from "react-icons/fa";
 import { SetStateAction, useState } from 'react';
 import DriverDetails from '../../components/DriverDetails';
+import Modal from '../../components/ui/Modal';
+
+interface Trip {
+    route: string;
+    collectionDate: string;
+    deliveryDate: string;
+}
 
 interface Driver {
     id: number;
     name: string;
     photo: string;
-    rating: number; // Star rating (out of 5) for the driver
-    totalDrivingHours: number; // Total driving hours logged by the driver
-    lastActive: string; // ISO date string of the driver's last active date
-    email: string; // Email address of the driver
-    mobile: string; // Mobile phone number of the driver
+    deliveries: number;
+    rating: number;
+    totalDrivingHours: number;
+    lastActive: string;
+    email: string;
+    mobile: string;
+    recentTrips: Trip[];
 }
+
 
 const Drivers = () => {
     const [selectedDriver, setSelectedDriver] = useState<Driver | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = (driver: SetStateAction<null>) => {
+    const openModal = (driver: SetStateAction<Driver | null>) => {
         setSelectedDriver(driver);
         setIsModalOpen(true);
     };
@@ -98,58 +108,191 @@ const Drivers = () => {
                 </div>
             </div>
 
-            {isModalOpen && selectedDriver && (
+            <Modal isOpen={isModalOpen} onClose={closeModal} title="Driver Details" size='lg'>
+                {selectedDriver && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            {/* <h1 className="text-gray-300 font-semibold text-black text-md lg:text-xl mb-4">Drivers Details</h1> */}
+                            <div>
+                                <div>
+
+                                    <div>
+                                        <img
+                                            src={selectedDriver.photo}
+                                            alt={selectedDriver.name}
+                                            className="w-[140px] rounded-full mx-auto my-4"
+                                        />
+                                        <h2 className="text-lg font-semibold text-black text-center mb-4">
+                                            {selectedDriver.name}
+                                        </h2>
+                                    </div>
+
+                                    <hr className='bg-gray-300' />
+
+                                    <div className="flex items-center justify-between py-4">
+                                        <div className="text-center">
+                                            <h3 className="text-2xl font-semibold">{selectedDriver.deliveries}</h3>
+                                            <p className="text-md font-medium text-gray-300">Deliveries</p>
+                                        </div>
+
+
+                                        <div className="text-center">
+                                            <h3 className="text-2xl font-semibold">⭐ {selectedDriver.rating}</h3>
+                                            <p className="text-md font-medium text-gray-300">Star ratings</p>
+                                        </div>
+
+
+                                        <div className="text-center">
+                                            <h3 className="text-2xl font-semibold">{selectedDriver.totalDrivingHours}</h3>
+                                            <p className="text-md font-medium text-gray-300">Driving hours</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="mt-4">
+                                        <h3 className="text-xl font-semibold">Details</h3>
+
+                                        <div className="my-4 space-y-3">
+
+                                            <p className="text-md text-gray-600">
+                                                <strong>Email:</strong> {selectedDriver.email}
+                                            </p>
+                                            <p className="text-md text-gray-600">
+                                                <strong>Mobile:</strong> {selectedDriver.mobile}
+                                            </p>
+                                            <p className="text-md text-gray-600">
+                                                <strong>Last Active:</strong> {selectedDriver.lastActive}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* <div className="flex justify-end">
+                                        <button
+                                            className="bg-red-500 text-white px-4 py-2 rounded-md mt-4"
+                                            onClick={closeModal}
+                                        >
+                                            Close
+                                        </button>
+                                    </div> */}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h1 className="text-gray-300 font-semibold text-black text-md lg:text-xl mb-4">Recent Trips</h1>
+
+                            <div className="space-y-3">
+                                {selectedDriver.recentTrips.map((trip, index) => (
+                                    <div
+                                        key={index}
+                                        className="bg-gray-2 rounded-lg px-4 py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center"
+                                    >
+                                        <div className="text-base font-medium text-gray-700">{trip.route}</div>
+
+                                        <div>
+                                            <p className="font-medium text-sm">Collection: {trip.collectionDate}</p>
+                                            <p className="font-medium text-sm mt-1">Delivery: {trip.deliveryDate}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </Modal>
+
+            {/* {isModalOpen && selectedDriver && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-50 flex py-8 justify-center z-50"
                     onClick={closeModal}
                 >
                     <div
-                        className="bg-white rounded-lg p-6 w-[95%] md:w-[85%] lg:w-[70%]"
+                        className="bg-white rounded-lg p-6 w-[95%] md:w-[85%] lg:w-[70%] relative"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <h1 className="text-gray-300 font-medium text-black text-md lg:text-xl">Drivers Details</h1>
-                        <div className="grid gap-4 lg:gap-8 grid-cols-1 md:grid-cols-2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                
+                                <h1 className="text-gray-300 font-semibold text-black text-md lg:text-xl mb-4">Drivers Details</h1>
                                 <div>
-                                    <img
-                                        src={selectedDriver.photo}
-                                        alt={selectedDriver.name}
-                                        className="w-[140px] rounded-full mx-auto my-4"
-                                    />
-                                    <h2 className="text-lg font-semibold text-black text-center mb-4">
-                                        {selectedDriver.name}
-                                    </h2>
+                                    <div>
+
+                                        <div>
+                                            <img
+                                                src={selectedDriver.photo}
+                                                alt={selectedDriver.name}
+                                                className="w-[140px] rounded-full mx-auto my-4"
+                                            />
+                                            <h2 className="text-lg font-semibold text-black text-center mb-4">
+                                                {selectedDriver.name}
+                                            </h2>
+                                        </div>
+
+                                        <hr className='bg-gray-300' />
+
+                                        <div className="flex items-center justify-between py-4">
+                                            <div className="text-center">
+                                                <h3 className="text-2xl font-semibold">{selectedDriver.deliveries}</h3>
+                                                <p className="text-md font-medium text-gray-300">Deliveries</p>
+                                            </div>
+
+
+                                            <div className="text-center">
+                                                <h3 className="text-2xl font-semibold">⭐ {selectedDriver.rating}</h3>
+                                                <p className="text-md font-medium text-gray-300">Star ratings</p>
+                                            </div>
+
+
+                                            <div className="text-center">
+                                                <h3 className="text-2xl font-semibold">{selectedDriver.totalDrivingHours}</h3>
+                                                <p className="text-md font-medium text-gray-300">Driving hours</p>
+                                            </div>
+                                        </div>
+
+                                        <div className="mt-4">
+                                            <h3 className="text-xl font-semibold">Details</h3>
+
+                                            <div className="my-4 space-y-3">
+
+                                                <p className="text-md text-gray-600">
+                                                    <strong>Email:</strong> {selectedDriver.email}
+                                                </p>
+                                                <p className="text-md text-gray-600">
+                                                    <strong>Mobile:</strong> {selectedDriver.mobile}
+                                                </p>
+                                                <p className="text-md text-gray-600">
+                                                    <strong>Last Active:</strong> {selectedDriver.lastActive}
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex justify-end">
+                                            <button
+                                                className="bg-red-500 text-white px-4 py-2 rounded-md mt-4"
+                                                onClick={closeModal}
+                                            >
+                                                Close
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
 
-                                <hr className='bg-gray-300' />
+                            <div>
+                                <h1 className="text-gray-300 font-semibold text-black text-md lg:text-xl mb-4">Recent Trips</h1>
 
-                                <div className="my-4 space-y-3">
-                                    
-                                    <p className="text-sm text-gray-600">
-                                        <strong>Email:</strong> {selectedDriver.email}
-                                    </p>
-                                    <p className="text-sm text-gray-600">
-                                        <strong>Mobile:</strong> {selectedDriver.mobile}
-                                    </p>
-                                    <p className="text-sm text-gray-600">
-                                        <strong>Star Rating:</strong> ⭐ {selectedDriver.rating}
-                                    </p>
-                                    <p className="text-sm text-gray-600">
-                                        <strong>Total Driving Hours:</strong> {selectedDriver.totalDrivingHours}
-                                    </p>
-                                    <p className="text-sm text-gray-600">
-                                        <strong>Last Active:</strong> {selectedDriver.lastActive}
-                                    </p>
-                                </div>
+                                <div className="space-y-3">
+                                    {selectedDriver.recentTrips.map((trip, index) => (
+                                        <div
+                                            key={index}
+                                            className="bg-gray-2 rounded-lg px-4 py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center"
+                                        >
+                                            <div className="text-base font-medium text-gray-700">{trip.route}</div>
 
-                                <div className="flex justify-end">
-                                    <button
-                                        className="bg-red-500 text-white px-4 py-2 rounded-md mt-4"
-                                        onClick={closeModal}
-                                    >
-                                        Close
-                                    </button>
+                                            <div>
+                                                <p className="font-medium text-sm">Collection: {trip.collectionDate}</p>
+                                                <p className="font-medium text-sm mt-1">Delivery: {trip.deliveryDate}</p>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -157,7 +300,7 @@ const Drivers = () => {
                         
                     </div>
                 </div>
-            )}
+            )} */}
 
             {/* Modal */}
             {isAddModalOpen && (
