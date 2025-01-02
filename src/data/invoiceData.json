@@ -1,0 +1,66 @@
+[
+  {
+    "id": "INV001",
+    "dateIssued": "2023-10-15",
+    "customerName": "John Smith",
+    "amount": 25000,
+    "status": "paid",
+    "dueDate": "2023-11-15",
+    "items": [
+      {
+        "description": "Delivery Service - Lagos to Abuja",
+        "quantity": 1,
+        "unitPrice": 25000,
+        "total": 25000
+      }
+    ]
+  },
+  {
+    "id": "INV002",
+    "dateIssued": "2023-10-18",
+    "customerName": "Jane Doe",
+    "amount": 40000,
+    "status": "pending",
+    "dueDate": "2023-11-18",
+    "items": [
+      {
+        "description": "Transport Service - Medical Equipment",
+        "quantity": 1,
+        "unitPrice": 40000,
+        "total": 40000
+      }
+    ]
+  },
+  {
+    "id": "INV003",
+    "dateIssued": "2023-10-20",
+    "customerName": "Michael Scott",
+    "amount": 50000,
+    "status": "overdue",
+    "dueDate": "2023-11-20",
+    "items": [
+      {
+        "description": "Construction Materials Transport",
+        "quantity": 1,
+        "unitPrice": 50000,
+        "total": 50000
+      }
+    ]
+  },
+  {
+    "id": "INV004",
+    "dateIssued": "2023-10-22",
+    "customerName": "Pam Beesly",
+    "amount": 30000,
+    "status": "paid",
+    "dueDate": "2023-11-22",
+    "items": [
+      {
+        "description": "Electronic Appliances Transport",
+        "quantity": 1,
+        "unitPrice": 30000,
+        "total": 30000
+      }
+    ]
+  }
+]

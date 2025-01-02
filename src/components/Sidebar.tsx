@@ -3,7 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 // import Logo from '../images/logo/logo.svg';
 import Comecari from '../images/comecari-logo.png'
 import SidebarLinkGroup from './SidebarLinkGroup';
-import { TbBuilding, TbCash, TbTruckDelivery } from "react-icons/tb";
+import { TbBuilding, TbCash, TbFileInvoice, TbTruckDelivery } from "react-icons/tb";
 import { TbBriefcase2  } from "react-icons/tb";
 import { FaBuilding } from 'react-icons/fa6';
 
@@ -364,6 +364,17 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 >
                   <TbBuilding className='w-5 h-5' />
                   Marketplace
+                </NavLink>
+              </li>
+
+              <li>
+                <NavLink
+                  to="/invoice"
+                  className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname.includes('invoice') && 'bg-graydark dark:bg-meta-4'
+                    }`}
+                >
+                  <TbFileInvoice className='w-5 h-5' />
+                  Invoice
                 </NavLink>
               </li>
 
