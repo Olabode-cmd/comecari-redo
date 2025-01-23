@@ -102,7 +102,7 @@ const Trucks = () => {
                 <div className="fixed inset-0 flex pt-8 pb-6 justify-center bg-black bg-opacity-50 z-50">
                     <div className="bg-white rounded-lg shadow-lg p-6 w-[95%] md:w-[60%] lg:w-[50%] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
                         <h3 className="text-xl font-semibold mb-4">Add New Truck</h3>
-                        <form onSubmit={handleAddTruck}>
+                        <form onSubmit={addTruckFormik.handleSubmit}>
                             <div className="grid grid-cols-2 gap-4">
                                 {/* Truck Name */}
                                 <div className="mb-4">

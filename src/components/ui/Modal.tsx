@@ -24,7 +24,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, size = 'md', chil
             onClick={onClose}
         >
             <div
-                className={`bg-white rounded-lg py-6 px-6 mx-auto relative ${sizeClasses[size]}`}
+                className={`bg-white dark:border-strokedark dark:bg-boxdark rounded-lg py-6 px-6 mx-auto relative ${sizeClasses[size]}`}
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="flex items-center justify-between">

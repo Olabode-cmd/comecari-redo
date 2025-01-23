@@ -57,18 +57,18 @@ const Bids = () => {
                 {bidsData.map((bid) => (
                     <div
                         key={bid.id}
-                        className="bg-white rounded-lg shadow-md p-4 flex flex-col justify-between"
+                        className="bg-white dark:border-strokedark dark:bg-boxdark rounded-lg shadow-md p-4 flex flex-col justify-between"
                     >
                         <div>
                             <div className="flex items-center justify-between">
                                 <div>
-                                    <p className="text-gray-500 text-sm">{bid.id}</p>
-                                    <p className="text-gray-500 text-md">Date posted: <span className="font-semibold text-black">{bid.datePosted}</span></p>
+                                    <p className="text-gray-500 dark:text-slate-100 text-sm">{bid.id}</p>
+                                    <p className="text-gray-500 dark:text-slate-100 text-md">Date posted: <span className="font-semibold text-black dark:text-white">{bid.datePosted}</span></p>
                                 </div>
 
                                 <span
                                     className={`px-2 py-1 capitalize rounded-md text-sm font-semibold 
-    ${bid.status === "pending"
+                                ${bid.status === "pending"
                                             ? "text-yellow-600 bg-yellow-100"
                                             : bid.status === "in transit"
                                                 ? "text-green-600 bg-green-100"
@@ -84,14 +84,14 @@ const Bids = () => {
                             <div className="mt-4">
                                 <div className="flex items-center space-x-3">
                                     <FaLocationDot />
-                                    <p className="text-black text-md font-semibold">
+                                    <p className="text-black dark:text-white text-md font-semibold">
                                         {bid.pickupLocation}
                                     </p>
                                 </div>
-                                <p className="text-black my-1 text-sm">to</p>
+                                <p className="text-black dark:text-slate-100 my-1 text-sm">to</p>
                                 <div className="flex items-center space-x-3">
                                     <MdMyLocation />
-                                    <p className="text-black text-md font-semibold">
+                                    <p className="text-black dark:text-white text-md font-semibold">
                                         {bid.deliveryLocation}
                                     </p>
                                 </div>
@@ -103,11 +103,11 @@ const Bids = () => {
                         </div> */}
 
                         <div className="my-4 space-y-2">
-                            <p className="text-black font-medium">
+                            <p className="text-black font-medium dark:text-white">
                                 <span className="text-gray-400">Collection:</span> {bid.collection}
                             </p>
 
-                            <p className="text-black font-medium">
+                            <p className="text-black font-medium dark:text-white">
                                 <span className="text-gray-400">Delivery:</span> {bid.delivery}
                             </p>
                         </div>
@@ -115,11 +115,11 @@ const Bids = () => {
                         <hr />
 
                         <div className="my-4 space-y-2">
-                            <p className="text-black font-medium">
+                            <p className="text-black font-medium dark:text-white">
                                 <span className="text-gray-400">Bid amount:</span> ₦{bid.bidAmount}
                             </p>
 
-                            <p className="text-black font-medium">
+                            <p className="text-black font-medium dark:text-white">
                                 <span className="text-gray-400">You Bid:</span> ₦{bid.youBid}
                             </p>
                         </div>
@@ -139,7 +139,7 @@ const Bids = () => {
                 {selectedBid && (
                     <div>
                         <div className="flex items-center space-x-3">
-                            <h3 className="text-2xl font-semibold text-black">Bid Number: {selectedBid.id}</h3>
+                            <h3 className="text-2xl font-semibold text-black dark:text-white">Bid Number: {selectedBid.id}</h3>
                             <span
                                 className={`px-2 py-1 capitalize rounded-md text-sm font-semibold 
                                 ${selectedBid.status === "pending"
@@ -160,47 +160,46 @@ const Bids = () => {
                                 <div className="grid grid-cols-2 gap-2">
                                     <div className="space-y-4">
                                         <div>
-                                            <h3 className="text-lg font-medium text-black">Collection date:</h3>
-                                            <p className="text-md font-medium">{selectedBid.collection}</p>
+                                            <h3 className="text-lg font-medium text-black dark:text-slate-300">Collection date:</h3>
+                                            <p className="text-md font-medium dark:text-white">{selectedBid.collection}</p>
                                         </div>
 
                                         <div>
-                                            <h3 className="text-lg font-medium text-black">Delivery date:</h3>
-                                            <p className="text-md font-medium">{selectedBid.delivery}</p>
+                                            <h3 className="text-lg font-medium text-black dark:text-slate-300">Delivery date:</h3>
+                                            <p className="text-md font-medium dark:text-white">{selectedBid.delivery}</p>
                                         </div>
 
                                         <div>
-                                            <h3 className="text-lg font-medium text-black">Bid amount:</h3>
-                                            <p className="text-md font-medium">₦{selectedBid.bidAmount}</p>
+                                            <h3 className="text-lg font-medium text-black dark:text-slate-300">Bid amount:</h3>
+                                            <p className="text-md font-medium dark:text-white">₦{selectedBid.bidAmount}</p>
                                         </div>
 
                                         <div>
-                                            <h3 className="text-lg font-medium text-black">Your Bid:</h3>
-                                            <p className="text-md font-medium">₦{selectedBid.youBid}</p>
+                                            <h3 className="text-lg font-medium text-black dark:text-slate-300">Your Bid:</h3>
+                                            <p className="text-md font-medium dark:text-white">₦{selectedBid.youBid}</p>
                                         </div>
                                     </div>
 
                                     <div className="space-y-4">
                                         <div>
-                                            <h3 className="text-lg font-medium text-black">Pickup Location:</h3>
-                                            <p className="text-md font-medium">{selectedBid.pickupLocation}</p>
+                                            <h3 className="text-lg font-medium text-black dark:text-slate-300">Pickup Location:</h3>
+                                            <p className="text-md font-medium dark:text-white">{selectedBid.pickupLocation}</p>
                                         </div>
 
                                         <div>
-                                            <h3 className="text-lg font-medium text-black">Delivery Location:</h3>
-                                            <p className="text-md font-medium">{selectedBid.deliveryLocation}</p>
+                                            <h3 className="text-lg font-medium text-black dark:text-slate-300">Delivery Location:</h3>
+                                            <p className="text-md font-medium dark:text-white">{selectedBid.deliveryLocation}</p>
                                         </div>
 
                                         <div>
-                                            <h3 className="text-lg font-medium text-black">Dimensions:</h3>
-                                            <p className="text-md"><span className="font-medium">{selectedBid.details.dimensions.length} x {selectedBid.details.dimensions.width} x {selectedBid.details.dimensions.height}</span></p>
+                                            <h3 className="text-lg font-medium text-black dark:text-slate-300">Dimensions:</h3>
+                                            <p className="text-md dark:text-white"><span className="font-medium">{selectedBid.details.dimensions.length} x {selectedBid.details.dimensions.width} x {selectedBid.details.dimensions.height}</span></p>
                                         </div>
 
                                         <div>
-                                            <h3 className="text-lg font-medium text-black">Truck Requirements:</h3>
-                                            <p className="text-md font-medium">{selectedBid.details.truckRequirement.type}</p>
+                                            <h3 className="text-lg font-medium text-black dark:text-slate-300">Truck Requirements:</h3>
+                                            <p className="text-md font-medium dark:text-white">{selectedBid.details.truckRequirement.type}</p>
                                         </div>
-
                                     </div>
                                 </div>
 
@@ -208,18 +207,18 @@ const Bids = () => {
 
                                 <div>
                                     <div>
-                                        <h3 className="text-lg font-medium text-black">Job Poster:</h3>
+                                        <h3 className="text-lg font-medium text-black dark:text-white">Job Poster:</h3>
 
                                         <div className="flex items-center space-x-3 mt-2">
                                             <img src={selectedBid.details.jobPoster.profilePhoto} alt="profile photo" className="w-10 h-10 rounded-full" />
-                                            <p className="text-slate-700 text-md font-medium">{selectedBid.details.jobPoster.name}</p>
+                                            <p className="text-slate-700 dark:text-white text-md font-medium">{selectedBid.details.jobPoster.name}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <div>
-                                <h3 className="text-lg font-medium text-black">Cargo photos:</h3>
+                                <h3 className="text-lg font-medium text-black dark:text-white">Cargo photos:</h3>
                                 <div className="grid grid-cols-3 gap-3 mt-3">
                                     {selectedBid.details.cargoPhotos.map((photo, index) => (
                                         <img key={index} src={photo} alt={`Cargo photo ${index + 1}`} className="w-full rounded-lg" />

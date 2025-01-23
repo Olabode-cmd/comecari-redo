@@ -4,8 +4,8 @@ import { NavLink, useLocation } from 'react-router-dom';
 import Comecari from '../images/comecari-logo.png'
 import SidebarLinkGroup from './SidebarLinkGroup';
 import { TbBuilding, TbCash, TbFileInvoice, TbReportAnalytics, TbTruckDelivery } from "react-icons/tb";
-import { TbBriefcase2  } from "react-icons/tb";
-import { FaBuilding } from 'react-icons/fa6';
+// import { TbBriefcase2  } from "react-icons/tb";
+// import { FaBuilding } from 'react-icons/fa6';
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -340,7 +340,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                   className={`group relative flex items-center gap-2.5 rounded-sm py-2 px-4 font-medium text-bodydark1 duration-300 ease-in-out hover:bg-graydark dark:hover:bg-meta-4 ${pathname.includes('jobs') && 'bg-graydark dark:bg-meta-4'
                     }`}
                 >
-                  <TbBriefcase2  className='w-5 h-5' />
+                  <TbBriefcase  className='w-5 h-5' />
                   Jobs
                 </NavLink>
               </li>

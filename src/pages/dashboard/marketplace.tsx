@@ -1,4 +1,6 @@
 import { MdFilterListAlt, MdMyLocation } from "react-icons/md";
+import { useFormik } from 'formik';
+import { filterMarketplaceSchema } from '../../validation/schemas';
 import marketData from "../../data/marketplace";
 import { FaLocationDot } from "react-icons/fa6";
 import { SetStateAction, useState } from "react";
@@ -80,45 +82,107 @@ const Marketplace = () => {
             </div>
 
             <Modal isOpen={isFilterModalOpen} onClose={closeFilterModal} title="Filter marketplace" size="sm">
-                <form className="space-y-2">
+                <form onSubmit={filterFormik.handleSubmit} className="space-y-2">
                     <div>
                         <label htmlFor="pickupLocation" className="text-sm font-medium">
                             Enter pickup location
                         </label>
-                        <input type="text" id="pickupLocation" className="w-full px-3 py-3 border border-slate-300 rounded-lg text-md font-medium focus:outline-none" />
+                        <input 
+                            type="text" 
+                            id="pickupLocation"
+                            className={`w-full px-3 py-3 border rounded-lg text-md font-medium focus:outline-none ${
+                                filterFormik.touched.pickupLocation && filterFormik.errors.pickupLocation 
+                                    ? 'border-red-500' 
+                                    : 'border-slate-300'
+                            }`}
+                            {...filterFormik.getFieldProps('pickupLocation')}
+                        />
+                        {filterFormik.touched.pickupLocation && filterFormik.errors.pickupLocation && (
+                            <div className="text-red-500 text-sm mt-1">{filterFormik.errors.pickupLocation}</div>
+                        )}
                     </div>
 
                     <div>
                         <label htmlFor="deliveryLocation" className="text-sm font-medium">
                             Enter delivery location
                         </label>
-                        <input type="text" id="deliveryLocation" className="w-full px-3 py-3 border border-slate-300 rounded-lg text-md font-medium focus:outline-none" />
+                        <input 
+                            type="text" 
+                            id="deliveryLocation"
+                            className={`w-full px-3 py-3 border rounded-lg text-md font-medium focus:outline-none ${
+                                filterFormik.touched.deliveryLocation && filterFormik.errors.deliveryLocation 
+                                    ? 'border-red-500' 
+                                    : 'border-slate-300'
+                            }`}
+                            {...filterFormik.getFieldProps('deliveryLocation')}
+                        />
+                        {filterFormik.touched.deliveryLocation && filterFormik.errors.deliveryLocation && (
+                            <div className="text-red-500 text-sm mt-1">{filterFormik.errors.deliveryLocation}</div>
+                        )}
                     </div>
 
                     <div>
                         <label htmlFor="bidAmount" className="text-sm font-medium">
                             Enter bid amount
                         </label>
-                        <input type="text" id="bidAmount" className="w-full px-3 py-3 border border-slate-300 rounded-lg text-md font-medium focus:outline-none" />
+                        <input 
+                            type="number" 
+                            id="bidAmount"
+                            className={`w-full px-3 py-3 border rounded-lg text-md font-medium focus:outline-none ${
+                                filterFormik.touched.bidAmount && filterFormik.errors.bidAmount 
+                                    ? 'border-red-500' 
+                                    : 'border-slate-300'
+                            }`}
+                            {...filterFormik.getFieldProps('bidAmount')}
+                        />
+                        {filterFormik.touched.bidAmount && filterFormik.errors.bidAmount && (
+                            <div className="text-red-500 text-sm mt-1">{filterFormik.errors.bidAmount}</div>
+                        )}
                     </div>
 
                     <div>
                         <label htmlFor="collection" className="text-sm font-medium">
                             Enter collection
                         </label>
-                        <input type="text" id="collection" className="w-full px-3 py-3 border border-slate-300 rounded-lg text-md font-medium focus:outline-none" />
+                        <input 
+                            type="date" 
+                            id="collection"
+                            className={`w-full px-3 py-3 border rounded-lg text-md font-medium focus:outline-none ${
+                                filterFormik.touched.collection && filterFormik.errors.collection 
+                                    ? 'border-red-500' 
+                                    : 'border-slate-300'
+                            }`}
+                            {...filterFormik.getFieldProps('collection')}
+                        />
+                        {filterFormik.touched.collection && filterFormik.errors.collection && (
+                            <div className="text-red-500 text-sm mt-1">{filterFormik.errors.collection}</div>
+                        )}
                     </div>
 
                     <div>
                         <label htmlFor="delivery" className="text-sm font-medium">
                             Enter delivery
                         </label>
-                        <input type="text" id="delivery" className="w-full px-3 py-3 border border-slate-300 rounded-lg text-md font-medium focus:outline-none" />
+                        <input 
+                            type="date" 
+                            id="delivery"
+                            className={`w-full px-3 py-3 border rounded-lg text-md font-medium focus:outline-none ${
+                                filterFormik.touched.delivery && filterFormik.errors.delivery 
+                                    ? 'border-red-500' 
+                                    : 'border-slate-300'
+                            }`}
+                            {...filterFormik.getFieldProps('delivery')}
+                        />
+                        {filterFormik.touched.delivery && filterFormik.errors.delivery && (
+                            <div className="text-red-500 text-sm mt-1">{filterFormik.errors.delivery}</div>
+                        )}
                     </div>
 
                     <div>
                         <button
+                            type="submit"
                             className="text-white w-full mt-3 bg-blue-600 hover:bg-blue-700 text-sm font-medium px-4 py-3 rounded-lg"
+                            disabled={!filterFormik.isValid || filterFormik.isSubmitting}
                         >
                             Apply
                         </button>

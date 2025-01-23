@@ -71,13 +71,13 @@ const Jobs = () => {
                     {jobs.map((job) => (
                         <div
                             key={job.id}
-                            className="bg-white rounded-lg shadow-md p-4 flex flex-col justify-between"
+                            className="bg-white dark:border-strokedark dark:bg-boxdark rounded-lg shadow-md p-4 flex flex-col justify-between"
                         >
                             <div>
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-gray-500 text-sm">{job.id}</p>
-                                        <p className="text-gray-500 text-md">Date posted: <span className="font-semibold text-black">{job.datePosted}</span></p>
+                                        <p className="text-gray-500 dark:text-white text-sm">{job.id}</p>
+                                        <p className="text-gray-500 dark:text-white text-md">Date posted: <span className="font-semibold text-black dark:text-white">{job.datePosted}</span></p>
                                     </div>
 
                                     <span
@@ -98,26 +98,26 @@ const Jobs = () => {
                                 <div className="mt-4">
                                     <div className="flex items-center space-x-3">
                                         <FaLocationDot />
-                                        <p className="text-black text-md font-semibold">
+                                        <p className="text-black dark:text-white text-md font-semibold">
                                             {job.pickupLocation}
                                         </p>
                                     </div>
-                                    <p className="text-black my-1 text-sm">to</p>
+                                    <p className="text-black dark:text-white my-1 text-sm">to</p>
                                     <div className="flex items-center space-x-3">
                                         <MdMyLocation />
-                                        <p className="text-black text-md font-semibold">
+                                        <p className="text-black dark:text-white text-md font-semibold">
                                             {job.deliveryLocation}
                                         </p>
                                     </div>
                                 </div>
                             </div>
                             <div className="mt-6">
-                                <p className="text-gray-500 text-sm">Driver</p>
-                                <p className="text-black font-medium">{job.driver.name}</p>
+                                <p className="text-gray-500 dark:text-gray-200 text-sm">Driver</p>
+                                <p className="text-black dark:text-white font-medium">{job.driver.name}</p>
                             </div>
 
                             <div className="my-4">
-                                <p className="text-black font-medium">
+                                <p className="text-black dark:text-white font-medium">
                                     <span className="text-gray-400">Description:</span> {job.details.jobDescription}
                                 </p>
                             </div>
@@ -135,55 +135,55 @@ const Jobs = () => {
             <Modal isOpen={isModalOpen} onClose={closeModal} title="" size='lg'>
                 {selectedJob && (
                     <div>
-                        <h3 className="text-2xl font-semibold text-black">Shipment Number: {selectedJob.id}</h3>
+                        <h3 className="text-2xl font-semibold text-black dark:text-white">Shipment Number: {selectedJob.id}</h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start mt-4">
                             <div className="space-y-4">
                                 <div>
-                                    <h3 className="text-lg font-medium text-black">Job description:</h3>
-                                    <p className="text-md">{selectedJob.details.jobDescription}</p>
+                                    <h3 className="text-lg font-medium text-black dark:text-slate-200">Job description:</h3>
+                                    <p className="text-md dark:text-white">{selectedJob.details.jobDescription}</p>
                                 </div>
 
                                 <div>
-                                    <h3 className="text-lg font-medium text-black">Pickup to Destination:</h3>
+                                    <h3 className="text-lg font-medium text-black dark:text-slate-200">Pickup to Destination:</h3>
                                     <div className="flex items-center space-x-3 mt-2">
                                         <FaLocationDot />
-                                        <p className="text-black text-md font-semibold">
+                                        <p className="text-black text-md font-semibold dark:text-white">
                                             {selectedJob.pickupLocation}
                                         </p>
                                     </div>
-                                    <p className="text-black my-1 text-sm">to</p>
+                                    <p className="text-black dark:text-white my-1 text-sm">to</p>
                                     <div className="flex items-center space-x-3">
                                         <MdMyLocation />
-                                        <p className="text-black text-md font-semibold">
+                                        <p className="text-black dark:text-white text-md font-semibold">
                                             {selectedJob.deliveryLocation}
                                         </p>
                                     </div>
                                 </div>
 
-                                <p className="text-md font-medium text-black">Price: <span className="font-semibold">₦{selectedJob.details.price}</span> </p>
-                                <p className="text-md font-medium text-black">Weight: <span className="font-semibold">{selectedJob.details.dimensions.weight}</span> </p>
-                                <p className="text-md font-medium text-black">Dimensions: <span className="font-semibold">{selectedJob.details.dimensions.length} x {selectedJob.details.dimensions.width} x {selectedJob.details.dimensions.height}</span> </p>
+                                <p className="text-md font-medium text-black dark:text-white">Price: <span className="font-semibold">₦{selectedJob.details.price}</span> </p>
+                                <p className="text-md font-medium text-black dark:text-white">Weight: <span className="font-semibold">{selectedJob.details.dimensions.weight}</span> </p>
+                                <p className="text-md font-medium text-black dark:text-white">Dimensions: <span className="font-semibold">{selectedJob.details.dimensions.length} x {selectedJob.details.dimensions.width} x {selectedJob.details.dimensions.height}</span> </p>
 
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                        <h3 className="text-lg font-medium text-black">Job poster:</h3>
+                                        <h3 className="text-lg font-medium text-black dark:text-white">Job poster:</h3>
 
                                         <div className="flex items-center space-x-3 mt-2">
                                             <img src={selectedJob.details.jobPoster.profilePhoto} alt="job poster image" className="w-[45px] rounded-full" />
 
-                                            <p className="text-black text-md font-semibold">
+                                            <p className="text-black text-md font-semibold dark:text-white">
                                                 {selectedJob.details.jobPoster.name}
                                             </p>
                                         </div>
                                     </div>
 
                                     <div>
-                                        <h3 className="text-lg font-medium text-black">Assigned Driver:</h3>
+                                        <h3 className="text-lg font-medium text-black dark:text-white">Assigned Driver:</h3>
 
                                         <div className="flex items-center space-x-3 mt-2">
                                             <img src={selectedJob.driver.photo} alt="job poster image" className="w-[45px] rounded-full" />
 
-                                            <p className="text-black text-md font-semibold">
+                                            <p className="text-black text-md font-semibold dark:text-white">
                                                 {selectedJob.driver.name}
                                             </p>
                                         </div>
@@ -193,7 +193,7 @@ const Jobs = () => {
 
 
                             <div>
-                                <h3 className="text-lg font-medium text-black">Location:</h3>
+                                <h3 className="text-lg font-medium text-black dark:text-white">Location:</h3>
                                 <img src={Map} alt="map src" className="rounded-lg mt-3" />
                             </div>
                         </div>

@@ -1,8 +1,21 @@
 import { Link } from 'react-router-dom';
-// import LogoDark from '../../images/logo/logo-dark.svg';
 import Logo from '../../images/comecari-logo.png';
+import { useFormik } from 'formik';
+import { signInSchema } from '../../validation/schemas';
 
 const SignIn = () => {
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: signInSchema,
+    onSubmit: (values) => {
+      console.log(values);
+      // Handle form submission
+    },
+  });
+  
   return (
     <>
       <div className="flex h-screen w-full items-center justify-center bg-primary">
@@ -17,7 +30,7 @@ const SignIn = () => {
               </h3>
               <p className="text-gray-500 font-medium text-sm mt-1">Kindly enter your details to sign in</p>
             </div>
-            <form action="#">
+            <form onSubmit={formik.handleSubmit}>
               <div className="p-6.5">
                 <div className="mb-4.5">
                   <label className="mb-2.5 block text-black dark:text-white">
@@ -77,7 +90,11 @@ const SignIn = () => {
                   </a>
                 </div>
 
-                <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray">
+                <button 
+                  type="submit"
+                  className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray"
+                  disabled={!formik.isValid || formik.isSubmitting}
+                >
                   Sign In
                 </button>
 
